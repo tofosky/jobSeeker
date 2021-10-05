@@ -1,0 +1,53 @@
+<div class="divs container">
+  <nav class="navbar all navbar-expand-lg navbar-light navs">
+    <div class="container-fluid">
+      <form class="d-flex ff">
+      <input [(ngModel)]="term"  name="term"  class="form-control me-2 text"  id="txt1" type="search" placeholder="Filter by title, companies, expertise.." aria-label="Search">
+      </form>
+      <form class="d-flex ff">
+          <input class="form-control me-2 text" type="search" placeholder="Filter by location..." aria-label="Search">
+        </form>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div  class="ss">
+      <form class="d-flex ff">
+        <input class="form-control me-2 text" type="search" placeholder="Search Session" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+    </div>
+    </nav>
+  </div>
+
+<div class="container  text-center">
+<div class="container">
+  <p>Total Number Of Jobs: {{totalJobs}}</p>
+</div>
+</div>
+<section class="container">
+  <div class="row">
+     <div *ngFor="let data of datas | filter:term" class=" col-4 mt-2 mb-2">
+    <div >
+    <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title class="title"><p>{{data.date}}</p></mat-card-title>
+        </mat-card-header>
+       
+        <mat-card-content>
+          <p>3
+            {{data.job_title}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+           <a href="#">{{data.location}}</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+</section>
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: white">Please Wait. </p>  
+  </ngx-spinner>   
